@@ -9,15 +9,15 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    return render_template('index')
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():
-    return render_template('about.html')
+    return render_template('about')
 
 @app.route('/developers', methods=['GET', 'POST'])
 def dev():
-    return render_template('developers.html')
+    return render_template('developers')
 
 
 @app.route('/result', methods=['GET', 'POST'])
@@ -61,7 +61,7 @@ def result():
     X_given_scale['const'] = lrr_model.params.values[0]
     y_predicted = lrr_model.predict(X_given_scale)[0]
 
-    return render_template('resultat.html',
+    return render_template('resultat',
         bicarbonate=request.form['bicarbonate'],
         urine_output=request.form['urine_output'],
         urea_nitrogen=request.form['urea_nitrogen'],
